@@ -10,32 +10,32 @@ import pages.RepositoryPage;
 import pages.modals.CreateDefectModal;
 
 public class DefectTest extends BaseTest {
-    private pages.ProjectsPage ProjectsPage;
-    private RepositoryPage RepositoryPage;
-    private DefectPage DefectPage;
-    private CreateDefectModal CreateDefectModal;
+    private ProjectsPage projectsPage;
+    private RepositoryPage repositoryPage;
+    private DefectPage defectPage;
+    private CreateDefectModal createDefectModal;
 
 
     @BeforeClass
     public void initialise() {
-        ProjectsPage = new ProjectsPage();
-        RepositoryPage = new RepositoryPage();
-        DefectPage = new DefectPage();
-        CreateDefectModal = new CreateDefectModal();
+        projectsPage = new ProjectsPage();
+        repositoryPage = new RepositoryPage();
+        defectPage = new DefectPage();
+        createDefectModal = new CreateDefectModal();
     }
 
     @Test
     public void newTestCaseTest() {
-        LoginPage.login(USERNAME, PASSWORD);
-        ProjectsPage.openProject(PROJECT_NAME);
-        RepositoryPage.defectsButtonClick();
-        DefectPage.addDefectButtonClick();
+        loginPage.login(USERNAME, PASSWORD);
+        projectsPage.openProject(PROJECT_NAME);
+        repositoryPage.defectsButtonClick();
+        defectPage.addDefectButtonClick();
         Defect newDefect = Defect.builder()
                 .defectTitle(faker.name().username())
                 .actualResult(faker.name().username())
                 .build();
-        CreateDefectModal.fillForm(newDefect);
-        CreateDefectModal.createDefectButtonClick();
-        Assert.assertTrue(DefectPage.defectIsCreated(newDefect.getDefectTitle()), String.format("On Defect page should be defect with name %s", newDefect.getDefectTitle()));
+        createDefectModal.fillForm(newDefect);
+        createDefectModal.createDefectButtonClick();
+        Assert.assertTrue(defectPage.defectIsCreated(newDefect.getDefectTitle()), String.format("On Defect page should be defect with name %s", newDefect.getDefectTitle()));
     }
 }

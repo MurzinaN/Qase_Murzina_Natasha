@@ -9,32 +9,32 @@ import pages.RepositoryPage;
 import pages.modals.CreateTestCaseModal;
 
 public class CreateTestCaseTest extends BaseTest {
-    private ProjectsPage ProjectsPage;
-    private RepositoryPage RepositoryPage;
-    private CreateTestCaseModal CreateTestCaseModal;
+    private ProjectsPage projectsPage;
+    private RepositoryPage repositoryPage;
+    private CreateTestCaseModal createTestCaseModal;
 
     @BeforeClass
     public void initialise() {
-        ProjectsPage = new ProjectsPage();
-        RepositoryPage = new RepositoryPage();
-        CreateTestCaseModal = new CreateTestCaseModal();
+        projectsPage = new ProjectsPage();
+        repositoryPage = new RepositoryPage();
+        createTestCaseModal = new CreateTestCaseModal();
 
     }
 
     @Test
     public void newTestCaseTest() {
-        LoginPage.login(USERNAME, PASSWORD);
-        ProjectsPage.openProject(PROJECT_NAME);
-        RepositoryPage.addCaseButtonClick();
+        loginPage.login(USERNAME, PASSWORD);
+        projectsPage.openProject(PROJECT_NAME);
+        repositoryPage.addCaseButtonClick();
         TestCase newTestCase = TestCase.builder()
                 .title(faker.name().username())
                 .description(faker.name().username())
                 .preConditions(faker.name().username())
                 .postConditions(faker.name().username())
                 .build();
-        CreateTestCaseModal.fillForm(newTestCase);
-        CreateTestCaseModal.saveButtonClick();
-        Assert.assertTrue(RepositoryPage.caseIsCreated(newTestCase.getTitle()), String.format("On Repository page should be case with name %s", newTestCase.getTitle()));
+        createTestCaseModal.fillForm(newTestCase);
+        createTestCaseModal.saveButtonClick();
+        Assert.assertTrue(repositoryPage.caseIsCreated(newTestCase.getTitle()), String.format("On Repository page should be case with name %s", newTestCase.getTitle()));
 
     }
 
