@@ -27,7 +27,7 @@ public class DefectTest extends BaseTest {
     @Test
     public void newTestCaseTest() {
         LoginPage.login(USERNAME, PASSWORD);
-        ProjectsPage.openProject();
+        ProjectsPage.openProject(PROJECT_NAME);
         RepositoryPage.defectsButtonClick();
         DefectPage.addDefectButtonClick();
         Defect newDefect = Defect.builder()

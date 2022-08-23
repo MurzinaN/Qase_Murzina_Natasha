@@ -24,7 +24,7 @@ public class CreateTestCaseTest extends BaseTest {
     @Test
     public void newTestCaseTest() {
         LoginPage.login(USERNAME, PASSWORD);
-        ProjectsPage.openProject();
+        ProjectsPage.openProject(PROJECT_NAME);
         RepositoryPage.addCaseButtonClick();
         TestCase newTestCase = TestCase.builder()
                 .title(faker.name().username())

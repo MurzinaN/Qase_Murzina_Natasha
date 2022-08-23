@@ -9,6 +9,7 @@ import pages.LoginPage;
 public class BaseTest {
     protected final static String USERNAME = "solodchenko13@gmail.com";
     protected final static String PASSWORD = "qa19qa19";
+    protected final static String PROJECT_NAME = "sharelane";
     protected LoginPage LoginPage;
     Faker faker = new Faker();
 
