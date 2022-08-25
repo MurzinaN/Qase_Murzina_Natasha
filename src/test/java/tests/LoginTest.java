@@ -16,13 +16,13 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void positiveLoginTest() {
-        LoginPage.login(USERNAME, PASSWORD);
+        loginPage.login(USERNAME, PASSWORD);
         Assert.assertTrue(ProjectsPage.ProjectsPageIsOpen(), "Projects page should be open");
     }
 
     @Test
     public void negativeLoginTest() {
-        LoginPage.login(USERNAME, "123");
-        Assert.assertEquals(LoginPage.getMessageErrorText(), EXPECTED_MESSAGE, "Error message should be on display");
+        loginPage.login(USERNAME, "123");
+        Assert.assertEquals(loginPage.getMessageErrorText(), EXPECTED_MESSAGE, "Error message should be on display");
     }
 }

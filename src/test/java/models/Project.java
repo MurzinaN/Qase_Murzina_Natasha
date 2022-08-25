@@ -5,8 +5,10 @@ import lombok.Data;
 
 @Data
 @Builder
-public class Defect {
+public class Project {
     private String title;
-    private String actual_result;
-    int severity;
+    private String code;
+    private String description;
+
+
 }
