@@ -31,11 +31,11 @@ public class DefectTest extends BaseTest {
         repositoryPage.defectsButtonClick();
         defectPage.addDefectButtonClick();
         Defect newDefect = Defect.builder()
-                .defectTitle(faker.name().username())
-                .actualResult(faker.name().username())
+                .title(faker.name().username())
+                .actual_result(faker.name().username())
                 .build();
         createDefectModal.fillForm(newDefect);
         createDefectModal.createDefectButtonClick();
-        Assert.assertTrue(defectPage.defectIsCreated(newDefect.getDefectTitle()), String.format("On Defect page should be defect with name %s", newDefect.getDefectTitle()));
+        Assert.assertTrue(defectPage.defectIsCreated(newDefect.getTitle()), String.format("On Defect page should be defect with name %s", newDefect.getTitle()));
     }
 }

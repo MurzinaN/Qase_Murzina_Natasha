@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CreateDefectModal {
     public void fillForm(Defect inputDefect) {
-        if (inputDefect.getDefectTitle() != null) {
-            $("#title").setValue(inputDefect.getDefectTitle());
+        if (inputDefect.getTitle() != null) {
+            $("#title").setValue(inputDefect.getTitle());
         }
-        new Input("Actual result").setValue(inputDefect.getActualResult());
+        new Input("Actual result").setValue(inputDefect.getActual_result());
     }
 
     public void createDefectButtonClick() {
