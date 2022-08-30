@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class ProjectResult {
-    String code;
+public class ErrorField {
+    String field;
+    String error;
 }
