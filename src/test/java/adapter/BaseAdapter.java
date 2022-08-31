@@ -1,13 +1,18 @@
 package adapter;
 
+import com.google.gson.Gson;
+import utils.PropertyReader;
+
 import static io.restassured.RestAssured.given;
 
 public class BaseAdapter {
-    protected final static String BASE_URL = "https://api.qase.io/v1/";
-    protected final static String ACCESS_TOKEN = "97730312b9c36938f80e2b9eabe55e17ffdc05f4";
+    protected final static Gson gson = new Gson();
+    protected final static String BASE_URL = System.getenv().getOrDefault("API_BASE_URL", PropertyReader.getProperty("qace.api_base_url"));
+
+    protected final static String ACCESS_TOKEN = System.getenv().getOrDefault("API_ACCESS_TOKEN", PropertyReader.getProperty("qace.access_token"));
 
     public String get(String endpoint, int statusCode) {
-      return   given()
+        return given()
                 .header("Token", ACCESS_TOKEN)
                 .header("Accept", "application/json")
                 .when()
@@ -30,6 +35,7 @@ public class BaseAdapter {
                 .statusCode(statusCode).
                 extract().body().asString();
     }
+
     public String delete(String endpoint, int statusCode) {
         return
                 given()

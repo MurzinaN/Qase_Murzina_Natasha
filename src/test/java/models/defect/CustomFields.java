@@ -1,10 +1,9 @@
-package models;
+package models.defect;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class DefectResult {
-   int id;
+public class CustomFields {
 }

@@ -1,6 +1,6 @@
 package adapter;
 
-public class ProjectAdapter extends BaseAdapter{
+public class ProjectAdapter extends BaseAdapter {
     private static final String ENDPOINT = "project";
 
     public String getAllProjects(int statusCode) {
@@ -11,6 +11,8 @@ public class ProjectAdapter extends BaseAdapter{
         return post(ENDPOINT, statusCode, requestBody);
     }
 
+    //return gson.fromJson((post(ENDPOINT, statusCode, requestBody)), new TypeToken<PositiveResponse<Project>>() {
+    // }.getType());PositiveResponse<Project>
     public String getProjectByCode(int statusCode, String projectCode) {
         return get(ENDPOINT + "/" + projectCode, statusCode);
     }

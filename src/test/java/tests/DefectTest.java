@@ -1,6 +1,6 @@
 package tests;
 
-import models.Defect;
+import models.defect.Defect;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

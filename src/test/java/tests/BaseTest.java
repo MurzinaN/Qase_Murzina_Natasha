@@ -5,10 +5,11 @@ import com.github.javafaker.Faker;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
+import utils.PropertyReader;
 
 public class BaseTest {
-    protected final static String USERNAME = "solodchenko13@gmail.com";
-    protected final static String PASSWORD = "qa19qa19";
+    protected final static String USERNAME = System.getenv().getOrDefault("USERNAME", PropertyReader.getProperty("qace.username"));
+    protected final static String PASSWORD = System.getenv().getOrDefault("PASSWORD", PropertyReader.getProperty("qace.password"));
     protected final static String PROJECT_NAME = "sharelane";
     protected LoginPage loginPage;
     Faker faker = new Faker();
@@ -20,7 +21,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void navigate() {
-        Configuration.baseUrl = "https://app.qase.io";
+        Configuration.baseUrl = PropertyReader.getProperty("qace.base_url");
         Configuration.timeout = 10000;
 
     }

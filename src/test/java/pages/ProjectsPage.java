@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ProjectsPage {
     private final static String PROJECT_NAME_LOCATOR = "//a[text()='%s']";
+
     public boolean ProjectsPageIsOpen() {
         return $("#createButton").isDisplayed();
     }

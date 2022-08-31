@@ -1,7 +1,7 @@
 package pages.modals;
 
 import elements.Input;
-import models.Defect;
+import models.defect.Defect;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
